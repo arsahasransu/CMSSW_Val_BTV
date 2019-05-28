@@ -121,9 +121,8 @@ echo "mv DQM_V000?_R000000001__RelValTTbar_13_UP*__CMSSW_${RELEASE}-${GLOBALTAG_
 echo "mv DQM_V000?_R000000001__RelValTTbar_13__CMSSW_${RELEASE}-${GLOBALTAG_PREFIX}*upgrade2018*realistic*__DQMIO.root BTagRelVal_TTbar_FullSim_${rel}.root"  >> RenameRelVals.sh
 echo "mv DQM_V000?_R000000001__RelValTTbar_13_UP*__CMSSW_${RELEASE}-${GLOBALTAG_PREFIX}*mc2017*realistic*_FastSim*__DQMIO.root BTagRelVal_TTbar_FastSim_${rel}_2017.root" >> RenameRelVals.sh
 echo "mv DQM_V000?_R000000001__RelValTTbar_13__CMSSW_${RELEASE}-${GLOBALTAG_PREFIX}*mc2017*realistic*__DQMIO.root BTagRelVal_TTbar_FullSim_${rel}_2017.root"  >> RenameRelVals.sh
-echo "mv DQM_V000?_R000000001__RelValTTbar_13_UP*__CMSSW_${RELEASE}-${GLOBALTAG_PREFIX}*mcRun2*asymptotic*_FastSim*__DQMIO.root BTagRelVal_TTbar_FastSim_${rel}_2016.root" >> RenameRelVals.sh
+echo "mv DQM_V000?_R000000001__RelValTTbar_13__CMSSW_${RELEASE}-${GLOBALTAG_PREFIX}*mcRun2*asymptotic*_FastSim*__DQMIO.root BTagRelVal_TTbar_FastSim_${rel}_2016.root" >> RenameRelVals.sh
 echo "mv DQM_V000?_R000000001__RelValTTbar_13__CMSSW_${RELEASE}-${GLOBALTAG_PREFIX}*mcRun2*asymptotic*__DQMIO.root BTagRelVal_TTbar_FullSim_${rel}_2016.root"  >> RenameRelVals.sh
-echo "mv DQM_V000?_R000000001__RelValTTbar_13_UP*__CMSSW_${RELEASE}-${GLOBALTAG_PREFIX}*upgrade2021*realistic*_FastSim*__DQMIO.root BTagRelVal_TTbar_FastSim_${rel}_2021.root" >> RenameRelVals.sh
 echo "mv DQM_V000?_R000000001__RelValTTbar_13__CMSSW_${RELEASE}-${GLOBALTAG_PREFIX}*upgrade2021*realistic*__DQMIO.root BTagRelVal_TTbar_FullSim_${rel}_2021.root"  >> RenameRelVals.sh
 echo "mv DQM_V000?_R000000001__RelValTTbar_14TeV__CMSSW_${RELEASE}-${GLOBALTAG_PREFIX}*upgrade2021*realistic*_FastSim*__DQMIO.root BTagRelVal_TTbar_FastSim_${rel}_2021_14TeV.root" >> RenameRelVals.sh
 echo "mv DQM_V000?_R000000001__RelValTTbar_14TeV__CMSSW_${RELEASE}-${GLOBALTAG_PREFIX}*upgrade2021*realistic*__DQMIO.root BTagRelVal_TTbar_FullSim_${rel}_2021_14TeV.root"  >> RenameRelVals.sh
