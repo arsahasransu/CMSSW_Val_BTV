@@ -1,45 +1,40 @@
 # No shebang, this should be sourced, not executed
 
-# Release to be validated
 RELEASE=10_6_0_pre4
-
 GLOBALTAG_PREFIX=106X
 
-# Where to fetch the RelVals -- CHECK it as it depends on the release cycle!
-BASEURL=https://cmsweb\.cern\.ch/dqm/relval/data/browse/ROOT/RelVal/CMSSW_10_6_x
-
-# Path to grid certificates
-CERT=~/.globus/usercert.pem
-KEY=~/.globus/userkey.pem
-
-# Set-up CMS release where we can do a 'cmsenv'
-#ENV_REL=9_3_5
-
-#if [[ $1 != "-k" ]]; then
-    # Make sure we can access DAS
-#    echo ""
-#    echo " > Creating proxy allowing DAS access ..."
-#    echo ""
-#    voms-proxy-init -rfc -voms cms
-#else
-#    echo "\n > Reusing existing proxy for DAS access.\n"
-#fi
-
-#echo ""
-#echo " > Trying to setup CMS env in $ENV_REL ..."
-#echo ""
-
-#pushd CMSSW_$ENV_REL/src
-#eval `scramv1 runtime -sh`
-#popd
+# Make sure we can access DAS
+echo ""
+echo " > Creating proxy allowing DAS access ..." 
+echo ""
+voms-proxy-init -rfc -voms cms
 
 echo ""
 echo " > Setting up CMSSW release $REL ..."
 echo ""
 
-FOLDER=CMSSW_${RELEASE}/src/Validation/RecoB/test
-mkdir -p ${FOLDER}
-cd ${FOLDER}
+scramv1 project CMSSW CMSSW_$RELEASE
+cd CMSSW_$RELEASE/src
+eval `scramv1 runtime -sh`
+
+echo ""
+echo " > Checking out Validation and DQM packages ..."
+echo ""
+
+git cms-addpkg Validation/RecoB
+git cms-addpkg DQMOffline/RecoB
+
+echo ""
+echo " > Compiling packages ..."
+echo ""
+
+scram b -j 8
+
+echo ""
+echo " > Create folders for validation ..."
+echo ""
+
+cd Validation/RecoB/test
 
 echo ""
 echo " > Get files list from DAS ..."
@@ -85,6 +80,7 @@ done
 rm TEMPKEY.pem
 
 cp ../../../../../makeComparison.sh .
+cp ../../../../../RelValMove.sh .
 ln -s ../../../../.. baseDir
 
 rel=${RELEASE//_/}
